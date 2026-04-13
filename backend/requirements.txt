@@ -10,3 +10,4 @@ python-jose[cryptography]==3.3.0
 pydantic[email]==2.5.2
 pydantic-settings==2.1.0
 google-auth==2.23.4
+sendgrid==6.11.0
