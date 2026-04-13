@@ -16,11 +16,18 @@ app = FastAPI(title="JOB TRAIL SIMULATOR API")
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-     allow_origins=["*"],  # allow all (temporary)
+    allow_origins=[
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "http://127.0.0.1:5173",
+        "http://127.0.0.1:3000",
+        "job-trail-simulator-lijc-hzkycqh4h-kavya-476s-projects.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Optional auth for job listings
 async def get_optional_user(db: Session = Depends(database.get_db), token: Optional[str] = Depends(auth_utils.oauth2_scheme)):
